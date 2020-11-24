@@ -6,9 +6,10 @@ var burgers = require("../models/burgers.js");
 
 
 router.get("/", function(req, res) {
-  cat.all(function(data) {
+  console.log("test");
+  burgers.all(function(data) {
     var hbsObject = {
-      cats: data
+      burgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -31,7 +32,7 @@ router.put("/api/burgers/:id", function(req, res) {
   console.log("condition", condition);
 
   burgers.update({
-    sleepy: req.body.devour
+    devour: req.body.devour
   }, condition, function(result) {
     if (result.changedRows == 0) {
       return res.status(404).end();
