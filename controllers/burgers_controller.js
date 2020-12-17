@@ -4,6 +4,8 @@ var router = express.Router();
 
 var burgers = require("../models/burgers.js");
 
+var Sequelize = require("sequelize")
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
